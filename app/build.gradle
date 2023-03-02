@@ -44,4 +44,7 @@ dependencies {
 
     //Http request
     implementation("com.github.kittinunf.fuel:fuel:2.3.1")
+
+    //Decodificador e codificador JSON
+    implementation("com.google.code.gson:gson:2.8.9")
 }
