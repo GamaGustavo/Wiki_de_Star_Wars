@@ -1,4 +1,4 @@
-package br.com.gamagustavo.wiki_de_star_wars.http
+package br.com.gamagustavo.wiki_de_star_wars.http.interceptors
 
 import com.github.kittinunf.fuel.core.Request
 import com.github.kittinunf.fuel.core.Response

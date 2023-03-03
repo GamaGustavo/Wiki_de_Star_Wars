@@ -1,5 +1,6 @@
 package br.com.gamagustavo.wiki_de_star_wars.http
 
+import br.com.gamagustavo.wiki_de_star_wars.http.interceptors.LoggingInterceptor
 import com.github.kittinunf.fuel.core.HttpException
 import com.github.kittinunf.fuel.core.Parameters
 import com.github.kittinunf.fuel.httpGet
