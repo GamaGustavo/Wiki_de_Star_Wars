@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Specie(
-    @PrimaryKey(autoGenerate = false) val id: Long,
+    @PrimaryKey(autoGenerate = false) val specieId: Long,
     val name: String,
     val url: String,
     val created: String,
