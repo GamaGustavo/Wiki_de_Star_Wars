@@ -6,10 +6,16 @@ import com.google.gson.Gson
 
 object PeopleWebClient {
     private const val PATH = "https://swapi.dev/api/people"
+    private const val FIRT_PAGE = "https://swapi.dev/api/people/?page=1"
     private val GSON = Gson()
 
-    suspend fun getAllPeoples(): ListPeopleModel {
-        val json = WebClient.get(PATH)
+    suspend fun getFirtPagePeoples(): ListPeopleModel {
+        val json = WebClient.get(FIRT_PAGE)
+        return GSON.fromJson(json, ListPeopleModel::class.java)
+    }
+
+    suspend fun getNexPagePeoples(nextPage: String): ListPeopleModel {
+        val json = WebClient.get(nextPage)
         return GSON.fromJson(json, ListPeopleModel::class.java)
     }
 
