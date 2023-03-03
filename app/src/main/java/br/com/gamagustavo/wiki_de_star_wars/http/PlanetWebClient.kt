@@ -5,7 +5,7 @@ import br.com.gamagustavo.wiki_de_star_wars.model.PlanetModel
 import com.google.gson.Gson
 
 object PlanetWebClient {
-    private const val path = "https://swapi.dev/api/planets"
+    const val path = "https://swapi.dev/api/planets/"
     private val gson = Gson()
 
     suspend fun getPlanetByUrl(url: String): PlanetModel {
