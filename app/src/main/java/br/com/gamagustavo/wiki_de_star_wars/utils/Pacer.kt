@@ -11,7 +11,7 @@ import br.com.gamagustavo.wiki_de_star_wars.model.PlanetModel
 import br.com.gamagustavo.wiki_de_star_wars.model.SpecieModel
 
 object Pacer {
-   fun toEntity(specieModel: SpecieModel): Specie {
+    fun toEntity(specieModel: SpecieModel): Specie {
         val url = specieModel.url.replace(SpecieWbeClient.path, "").replace("/", "")
         return Specie(
             specieId = url.toLong(),
@@ -19,6 +19,15 @@ object Pacer {
             name = specieModel.name,
             created = specieModel.created,
             edited = specieModel.edited
+        )
+    }
+
+    fun toModel(specie: Specie): SpecieModel {
+        return SpecieModel(
+            url = specie.url,
+            name = specie.name,
+            created = specie.created,
+            edited = specie.edited
         )
     }
 
@@ -33,7 +42,7 @@ object Pacer {
         )
     }
 
-    fun toEntuty(peopleModel: PeopleModel): People {
+    fun toEntity(peopleModel: PeopleModel): People {
         val url = peopleModel.url.replace(PeopleWebClient.path, "").replace("/", "")
         val homeWold = peopleModel.homeworld.replace(PlanetWebClient.path, "").replace("/", "")
         return People(
@@ -50,6 +59,29 @@ object Pacer {
             gender = peopleModel.gender,
             eyeColor = peopleModel.eyeColor,
             birthYear = peopleModel.birthYear,
+        )
+    }
+
+
+    fun toModel(people: People): PeopleModel {
+        return PeopleModel(
+            url = people.url,
+            name = people.name,
+            created = people.created,
+            edited = people.edited,
+            skinColor = people.skinColor,
+            mass = people.mass,
+            height = people.height,
+            hairColor = people.hairColor,
+            gender = people.gender,
+            eyeColor = people.eyeColor,
+            birthYear = people.birthYear,
+            species = listOf(),
+            homeworld = "",
+            isFavorite = false,
+            listSpecie = mutableListOf(),
+            nameHomeworld = "",
+            nameSpecies = "",
         )
     }
 }

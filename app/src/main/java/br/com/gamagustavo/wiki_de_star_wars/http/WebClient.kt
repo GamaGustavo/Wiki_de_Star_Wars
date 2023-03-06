@@ -24,7 +24,8 @@ object WebClient {
                 if (bytes != null) return@withContext String(bytes)
                 if (error != null) throw error
             }
-            throw HttpException(response.statusCode, response.responseMessage)
+            if (response.statusCode < 0) throw HttpException(response.statusCode,"Connection Error")
+            throw HttpException(response.statusCode,response.responseMessage)
         }
     }
 }

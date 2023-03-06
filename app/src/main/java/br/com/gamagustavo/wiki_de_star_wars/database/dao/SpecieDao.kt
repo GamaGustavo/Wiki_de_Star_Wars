@@ -26,4 +26,7 @@ interface SpecieDao {
 
     @Query(value = "DELETE FROM specie WHERE specieId = :specieId ")
     fun deleteById(specieId: Long)
+
+    @Query(value = "SELECT * FROM specie WHERE specieId = :specieId")
+    fun getOneById(specieId: Long): Specie
 }

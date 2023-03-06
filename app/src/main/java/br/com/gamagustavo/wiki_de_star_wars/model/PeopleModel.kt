@@ -13,6 +13,7 @@ data class PeopleModel(
     val gender: String,
     val homeworld: String,
     var nameSpecies:String,
+    var listSpecie: MutableList<SpecieModel>,
     var nameHomeworld: String,
     val species: List<String>,
     val url: String,

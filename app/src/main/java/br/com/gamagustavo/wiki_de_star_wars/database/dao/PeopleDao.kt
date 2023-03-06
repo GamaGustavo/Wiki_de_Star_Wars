@@ -20,10 +20,10 @@ interface PeopleDao {
     fun getById(peopleId: Long): People
 
     @Transaction
-    @Query("SELECT * FROM people")
-    fun getSpeciesOfPeople(): List<SpeciesOfPeople>
+    @Query("SELECT * FROM people join peoplespeciecrossref on peoplespeciecrossref.peopleId = people.peopleId join specie on specie.specieId = peoplespeciecrossref.specieId where people.peopleId = :peopleId")
+    fun getSpeciesOfPeople(peopleId: Long): SpeciesOfPeople
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE )
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(peoples: List<People>)
 
     @Delete
