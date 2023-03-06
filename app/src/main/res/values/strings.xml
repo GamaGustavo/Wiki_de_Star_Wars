@@ -11,4 +11,5 @@
     <string name="specie_name">Specie Name</string>
     <string name="favorite">Favorite</string>
     <string name="home">Home</string>
+    <string name="imbt_favorite_border_desc">Favorite button border</string>
 </resources>

@@ -236,6 +236,22 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:padding="8dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imbt_favorite_border"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/imbt_favorite_border_desc"
+                app:srcCompat="@drawable/baseline_favorite_border_24" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
