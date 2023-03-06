@@ -10,22 +10,67 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/bt_home"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="@string/home" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5" />
+
+            <Button
+                android:id="@+id/bt_favorite"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:text="@string/favorite" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <SearchView
             android:id="@+id/sc_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp">
+
+        </SearchView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rc_people"
-            android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="8dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp" />
+            android:layout_marginTop="1dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 

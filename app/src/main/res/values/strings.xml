@@ -9,4 +9,6 @@
     <string name="birth_year">Birth Year</string>
     <string name="hoem_world">Hoem World</string>
     <string name="specie_name">Specie Name</string>
+    <string name="favorite">Favorite</string>
+    <string name="home">Home</string>
 </resources>
