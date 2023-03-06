@@ -23,7 +23,7 @@ interface PeopleDao {
     @Query("SELECT * FROM people")
     fun getSpeciesOfPeople(): List<SpeciesOfPeople>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE )
     fun insertAll(peoples: List<People>)
 
     @Delete
