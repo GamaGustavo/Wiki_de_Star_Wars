@@ -12,8 +12,11 @@ data class PeopleModel(
     @SerializedName(value = "birth_year") val birthYear: String,
     val gender: String,
     val homeworld: String,
+    var nameSpecies:String,
+    var nameHomeworld: String,
     val species: List<String>,
     val url: String,
     val created: String,
-    val edited: String
+    val edited: String,
+    var isFavorite: Boolean
 )
