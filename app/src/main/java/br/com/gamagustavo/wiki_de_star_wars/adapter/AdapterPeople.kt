@@ -1,19 +1,23 @@
 package br.com.gamagustavo.wiki_de_star_wars.adapter
 
 import android.content.Context
+import android.graphics.drawable.Icon
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import br.com.gamagustavo.wiki_de_star_wars.OnClickExpanded
+import br.com.gamagustavo.wiki_de_star_wars.OnClickFavorite
 import br.com.gamagustavo.wiki_de_star_wars.R
 import br.com.gamagustavo.wiki_de_star_wars.model.PeopleModel
 
 class AdapterPeople(
     private val context: Context,
-    private val peoples: MutableList<PeopleModel>
+    private val peoples: MutableList<PeopleModel>,
 ) :
     RecyclerView.Adapter<AdapterPeople.PeopleViewHolder>() {
 
@@ -30,6 +34,7 @@ class AdapterPeople(
         val homeworld: TextView = itemView.findViewById(R.id.vl_homeworld)
         val species: TextView = itemView.findViewById(R.id.vl_specie)
         val expandeIten: LinearLayout = itemView.findViewById(R.id.ln_expande_itens)
+        val favoriteButton: ImageButton = itemView.findViewById(R.id.imbt_favorite_border)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeopleViewHolder {
@@ -40,10 +45,6 @@ class AdapterPeople(
     override fun getItemCount(): Int = peoples.size
 
     override fun onBindViewHolder(holder: PeopleViewHolder, position: Int) {
-        holder.card.setOnClickListener {
-            holder.expandeIten.visibility =
-                if (holder.expandeIten.visibility != View.VISIBLE) View.VISIBLE else View.GONE
-        }
         val people = peoples[position]
         holder.name.text = people.name
         holder.mass.text = insertUnit(people.mass, " Kg")
@@ -51,17 +52,32 @@ class AdapterPeople(
         holder.gender.text = people.gender
         holder.birthYear.text = people.birthYear
         holder.eyeColor.text = people.eyeColor
-        holder.homeworld.text = people.name
+        holder.homeworld.text = people.nameHomeworld
         holder.hairColor.text = people.hairColor
         holder.skinColor.text = people.skinColor
-        holder.species.text = people.name
+        holder.species.text = people.nameSpecies
+        if (!people.isFavorite) {
+            people.isFavorite = false
+        } else {
+            holder.favoriteButton.setImageIcon(
+                Icon.createWithResource(
+                    context,
+                    R.drawable.baseline_favorite_red
+                )
+            )
+        }
+        holder.card.setOnClickListener { OnClickExpanded.onClick(holder, people, context) }
+        holder.favoriteButton.setOnClickListener {
+            OnClickFavorite.onClick(
+                holder,
+                people,
+                context
+            )
+        }
+
     }
 
-    fun insertUnit(string: String, unit: String): String {
+    private fun insertUnit(string: String, unit: String): String {
         return if ("unknown" == string || "n/a" == string) string else string.plus(unit)
     }
-}
-
-interface ClickPeopleIten {
-    fun clickPeopleIten(context: Context, peopleModel: PeopleModel)
 }
